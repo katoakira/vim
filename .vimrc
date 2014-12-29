@@ -1,3 +1,14 @@
+"PHP補完
+<span class="s1">execute</span> pathogen#infect<span class="s2">()</span>
+syntax <span class="s4">on</span>
+<span class="s1">filetype</span> plugin indent on
+<span class="s1">set</span> wrapscan
+<span class="s1">set</span> number
+<span class="s1">set</span> <span class="s5">backspace</span>=start<span class="s1">,</span>indent<span class="s1">,</span>eol
+<span class="s1">set</span> <span class="s5">t_Co</span>=256
+<span class="s1">colorscheme</span> wombat256mod
+<span class="s1">autocmd</span> <span class="s4">FileType</span> php <span class="s1">set</span> <span class="s5">omnifunc</span>=phpcomplete#CompletePHP
+
 "vi互換モードで動作させない
 set nocompatible
 
@@ -49,7 +60,7 @@ set runtimepath+=~/.vim/bundle/neobundle.vim/
     " neobundle自体をneobundleで管理
    NeoBundleFetch 'Shougo/neobundle.vim'
      
-     " NERDTreeを設定                  <----- 追記
+     " NERDTreeを設定                  
      NeoBundle 'scrooloose/nerdtree'   
      
      " 表示・入力補完
@@ -66,8 +77,11 @@ set runtimepath+=~/.vim/bundle/neobundle.vim/
     let g:syntastic_check_on_open = 0 "ファイルオープン時にはチェックをしない
     let g:syntastic_check_on_save = 1 "ファイル保存時にはチェックを実施
      
-     call neobundle#end()
-     
+    " PHPの関数名の説明
+    NeoBundle 'violetyk/neocomplete-php.vim'
+    let g:neocomplete_php_locale = 'ja'
+
+    call neobundle#end() 
      " Required:
      ""filetype plugin indent on
       
